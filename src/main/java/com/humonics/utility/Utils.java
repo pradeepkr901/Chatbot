@@ -45,8 +45,25 @@ public class Utils {
 			options.addArguments("--start-maximized");
 			options.addArguments("disable-infobars");
 			options.addArguments("--disable-notifications");
-			//options.addArguments("disable-popup-blocking");
-			//options.addArguments("profile.default_content_setting_values.media_stream_mic"); 
+			options.addArguments("--disable-device-discovery-notifications");
+			options.addArguments("--disable-extensions");			    
+			 options.addArguments("disable-popup-blocking");
+			//options.addArguments("profile.default_content_setting_values.media_stream_mic");
+			 Map<String, Object> prefs = new HashMap<String, Object>();
+
+			prefs.put("credentials_enable_service", false);
+
+			prefs.put("profile.password_manager_enabled", false);
+
+			prefs.put("profile.default_content_setting_values.notifications", 1);
+
+			options.setExperimentalOption("prefs", prefs); 
+			
+			/* Map<String, Object> prefs=new HashMap<String,Object>();
+			prefs.put("profile.default_content_setting_values.notifications", 1);
+			//1-Allow, 2-Block, 0-default
+			options.setExperimentalOption("prefs",prefs); */
+			
 			
 			//Create prefs map to store all preferences 
 			/*Map<String, Object> prefs = new HashMap<String, Object>();
@@ -56,14 +73,14 @@ public class Utils {
 
 			//Create chrome options to set this prefs
 			
-			options.setExperimentalOption("prefs", prefs);
+			
 
 			//Now initialize chrome driver with chrome options which will switch off this browser notification on the chrome browser
 			//WebDriver driver = new ChromeDriver(options);
 
 			//Now do your further steps/options.getPlatform(Platform.WINDOWS);*/
 			driver = new ChromeDriver(options);
-			 driver.get(Constant.URL);
+			driver.get(Constant.URL);
 			/* Set<String> set=driver.getWindowHandles();
 			Iterator it=set.iterator();
 			String parentId=(String)it.next();

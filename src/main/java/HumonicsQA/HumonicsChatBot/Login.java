@@ -3,16 +3,22 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketException;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.json.simple.JSONObject;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeClass;
@@ -76,10 +82,24 @@ public class Login extends BaseClass {
         
        
         actions.moveToElement(driver.findElement(By.xpath("//*[@id='cover-caption']/div/div[1]/div[2]/div/div[2]/div/div/div/i[1]"))).click();
+        /*Alert alt=driver.switchTo().alert();
+		alt.accept(); */
+        Wait wait = new FluentWait<WebDriver>(driver)
+        		.withTimeout(20, TimeUnit.SECONDS)
+        		.pollingEvery(10, TimeUnit.SECONDS)
+        		.ignoring(NoSuchElementException.class);
         
         //audioValidationSuccessful();
-        driver.findElement(By.xpath("//*[@id='cover-caption']/div/div[1]/div[2]/div/div[2]/div/div/div/i[1]")).click();
-       // actions.build().perform();
+        
+        
+             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cover-caption']/div/div[1]/div[3]/input")));
+             WebElement element=driver.findElement(By.xpath("//*[@id='cover-caption']/div/div[1]/div[3]/input"));
+             element.click();
+        	
+        
+        
+	//	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='cover-caption']/div/div[1]/div[2]/div/div[2]/div/div/div/i[1]"))).click();
+        //actions.build().perform();
         log.info("Click action is performed on Login button");
         
         // Now it will wait 10 secs separately before jumping out to next step
