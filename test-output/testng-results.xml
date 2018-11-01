@@ -1,31 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
-    <line>
-      <![CDATA[Login Action is successfully perfomred]]>
-    </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="117326" started-at="2018-10-29T10:17:22Z" finished-at="2018-10-29T10:19:20Z">
+  <suite name="Default suite" duration-ms="2708" started-at="2018-11-01T06:25:44Z" finished-at="2018-11-01T06:25:47Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="117326" started-at="2018-10-29T10:17:22Z" finished-at="2018-10-29T10:19:20Z">
-      <class name="HumonicsQA.HumonicsChatBot.LoginTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:HumonicsQA.HumonicsChatBot.LoginTest@598067a5]" name="beforeMethod" is-config="true" duration-ms="13921" started-at="2018-10-29T10:17:22Z" finished-at="2018-10-29T10:17:36Z">
+    <test name="Default test" duration-ms="2708" started-at="2018-11-01T06:25:44Z" finished-at="2018-11-01T06:25:47Z">
+      <class name="com.infinitylabs.restAPI.SimpleGetTest">
+        <test-method status="PASS" signature="RegistrationSuccessful()[pri:0, instance:com.infinitylabs.restAPI.SimpleGetTest@6d4b1c02]" name="RegistrationSuccessful" duration-ms="2670" started-at="2018-11-01T06:25:44Z" finished-at="2018-11-01T06:25:47Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="main1()[pri:0, instance:HumonicsQA.HumonicsChatBot.LoginTest@598067a5]" name="main1" duration-ms="2598" started-at="2018-10-29T10:17:36Z" finished-at="2018-10-29T10:17:39Z">
-          <reporter-output>
-            <line>
-              <![CDATA[Login Action is successfully perfomred]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- main1 -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:HumonicsQA.HumonicsChatBot.LoginTest@598067a5]" name="afterMethod" is-config="true" duration-ms="100775" started-at="2018-10-29T10:17:39Z" finished-at="2018-10-29T10:19:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-      </class> <!-- HumonicsQA.HumonicsChatBot.LoginTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- RegistrationSuccessful -->
+      </class> <!-- com.infinitylabs.restAPI.SimpleGetTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

@@ -26,9 +26,10 @@ import org.testng.annotations.BeforeClass;
 import com.humonics.utility.Constant;
 import com.humonics.utility.ExcelUtils;
 import com.humonics.utility.Utils;
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.response.Response;
-import com.jayway.restassured.specification.RequestSpecification;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import static com.humonics.utility.Log.log;
 
