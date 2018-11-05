@@ -14,7 +14,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class SimpleGetTest {
 
-	/*@Test
+/*	@Test
 	public void GetWeatherDetails()
 	{   
 		// Specify the base URL to the RESTful web service
@@ -34,9 +34,9 @@ public class SimpleGetTest {
 		String responseBody = response.getBody().asString();
 		System.out.println("Response Body is =>  " + responseBody);
 
-	}
-*/
-	/*@Test
+	}*/
+
+/*	@Test
 	public void GetWeatherDetails()
 	{
 		RestAssured.baseURI = "http://restapi.demoqa.com/utilities/weather/city";
@@ -49,10 +49,12 @@ public class SimpleGetTest {
 		int statusCode = response.getStatusCode();
 
 		// Assert that correct status code is returned.
-		Assert.assertEquals(statusCode actual value, 200 expected value, "Correct status code returned");
+		Assert.assertEquals(statusCode, actual value,200  expected value  "Correct status code returned");
 	}*/
 	
-	/*@Test
+	
+	
+/*	@Test
 	public void GetWeatherDetailsInvalidCity()
 	{
 		RestAssured.baseURI = "http://restapi.demoqa.com/utilities/weather/city";
@@ -60,8 +62,8 @@ public class SimpleGetTest {
 		Response response = httpRequest.get("/78789798798");
 		int statusCode = response.getStatusCode();
 		Assert.assertEquals(statusCode actual value, 200 expected value, "Correct status code returned");
-	}*/
-	
+	}
+	*/
 	/*@Test
 	public void GetWeatherStatusLine()
 	{
@@ -176,7 +178,7 @@ public class SimpleGetTest {
 		System.out.println("wind direction degree  received from Response " + jsonPathEvaluator.get("WindDirectionDegree"));
 	}*/
 	
-	@Test
+/*	@Test
 	public void RegistrationSuccessful()
 	{		
 		RestAssured.baseURI ="http://restapi.demoqa.com/customer";
@@ -196,5 +198,74 @@ public class SimpleGetTest {
 		System.out.println("The status code recieved: " + statusCode);
 
 		System.out.println("Response body: " + response.body().asString());
+	}*/
+/*	
+	@Test
+	public void RegistrationSuccessful()
+	{		
+		RestAssured.baseURI ="http://restapi.demoqa.com/customer";
+		RequestSpecification request = RestAssured.given();
+	 
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("FirstName", "Virender"); // Cast
+		requestParams.put("LastName", "Singh");
+		requestParams.put("UserName", "63userf2d3d2011");
+		requestParams.put("Password", "password1");	
+		requestParams.put("Email",  "ed26dff39@gmail.com");
+	 
+		request.body(requestParams.toJSONString());
+		Response response = request.post("/register");
+	 
+		ResponseBody body = response.getBody();
+	 
+		// Deserialize the Response body into RegistrationSuccessResponse
+		RegistrationSuccessResponse responseBody = body.as(RegistrationSuccessResponse.class);
+	 
+		// Use the RegistrationSuccessResponse class instance to Assert the values of 
+		// Response.
+		Assert.assertEquals("OPERATION_SUCCESS", responseBody.SuccessCode);
+		Assert.assertEquals("Operation completed successfully", responseBody.Message);
 	}
+	*/
+/*	@Test
+	public void RegistrationSuccessful()
+	{		
+		RestAssured.baseURI ="http://restapi.demoqa.com/customer";
+		RequestSpecification request = RestAssured.given();
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("FirstName", "Virender"); // Cast
+		requestParams.put("LastName", "Singh");
+		requestParams.put("UserName", "65userf2d3d2011");
+		requestParams.put("Password", "password1");	
+		requestParams.put("Email",  "ed296dff39@gmail.com");
+
+		request.body(requestParams.toJSONString());
+		Response response = request.post("/register");
+
+		ResponseBody body = response.getBody();
+		System.out.println(response.body().asString());
+
+		if(response.statusCode() == 200)
+		{
+			// Deserialize the Response body into RegistrationFailureResponse
+			RegistrationFailureResponse responseBody = body.as(RegistrationFailureResponse.class);
+
+			// Use the RegistrationFailureResponse class instance to Assert the values of 
+			// Response.
+			Assert.assertEquals("User already exists", responseBody.FaultId);
+			Assert.assertEquals("FAULT_USER_ALREADY_EXISTS", responseBody.fault);	
+		}
+		else if (response.statusCode() == 201)
+		{
+			// Deserialize the Response body into RegistrationSuccessResponse
+			RegistrationSuccessResponse responseBody = body.as(RegistrationSuccessResponse.class);
+			// Use the RegistrationSuccessResponse class instance to Assert the values of 
+			// Response.
+			Assert.assertEquals("OPERATION_SUCCESS", responseBody.SuccessCode);
+			Assert.assertEquals("Operation completed successfully", responseBody.Message);	
+		}	
+	}
+	*/
+	
 }
