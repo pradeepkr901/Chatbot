@@ -1,7 +1,7 @@
 package com.humonics.utility;
 
 public class Constant {
-	    public static final String URL = "https://bot.humonics.ai:3090";
+	    public static final String URL = "";
 	    public static final String Username = "bharat";
 	    public static final String Password ="Admin@123";
 		public static final String Path_TestData = "E://workspace//HumonicsChatBot//DataExcel/";
